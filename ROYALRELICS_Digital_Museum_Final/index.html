@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f4ef">
+<meta name="description" content="Explore the ROYALRELICS digital eyewear collection in an immersive virtual museum.">
+<title>ROYALRELICS® — Digital Eyewear Museum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="announcement">ROYALRELICS® DIGITAL EYEWEAR MUSEUM <span>TIMELESS STYLE. ROYAL CHARACTER.</span></div>
+<header class="header">
+  <a class="brand" href="#home"><b>ROYALRELICS<sup>®</sup></b><small>THE DIGITAL EYEWEAR MUSEUM</small></a>
+  <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button>
+  <nav id="mainNav">
+    <a href="#museum">THE MUSEUM</a><a href="#collection">COLLECTION</a><a href="#story">OUR STORY</a>
+    <a href="#policies">POLICIES</a>
+  </nav>
+  <div class="account-area"><button class="account-button" id="accountButton">LOGIN / SIGN UP</button><button class="account-button signed-in" id="signOutButton" hidden>SIGN OUT</button></div>
+  <a class="header-order" href="#collection">EXPLORE COLLECTION ↗</a>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="hero-text">
+  <p class="eyebrow">A NEW PERSPECTIVE ON EYEWEAR</p>
+  <h1>Discover frames.<br><em>Experience the details.</em></h1>
+  <p class="lead">Step inside the ROYALRELICS digital eyewear museum. Explore every frame in one curated collection, discover its details and enquire directly on WhatsApp.</p>
+  <div class="hero-actions"><a class="button dark" href="#museum">ENTER THE MUSEUM ↗</a><a class="underlink" href="#collection">VIEW ALL PRODUCTS ↓</a></div>
+  <div class="hero-foot"><span>14 CURATED DESIGNS</span><span>DESIGNED FOR DISCOVERY</span></div>
+ </div>
+ <div class="hero-visual">
+  <div class="hero-arch"><div class="arch-top">RR®</div><div class="arch-caption">THE ART OF EYEWEAR</div>
+   <img src="./assets/turquoise-edge-optical.png" alt="Turquoise Edge optical frame">
+   <div class="hero-visual-label">FEATURED DESIGN <b>TURQUOISE EDGE</b></div>
+  </div>
+  <div class="side-stamp">TIMELESS STYLE · ROYAL CHARACTER</div>
+ </div>
+</section>
+
+<section class="intro-strip"><span>01 / THE EXPERIENCE</span><p>Not just a product gallery. <em>A place to explore.</em></p><span>ROYALRELICS®</span></section>
+
+<section class="museum-section" id="museum">
+ <div class="section-heading">
+  <p class="eyebrow">IMMERSIVE DIGITAL EXPERIENCE</p><h2>Walk through<br><em>the collection.</em></h2>
+  <p>Explore the complete collection together in one continuous gallery. Use Free Explore to move at your own pace or choose a guided tour with controls.</p>
+ </div>
+ <div class="museum-preview">
+  <div class="museum-preview-top"><span>ROYALRELICS® / VIRTUAL GALLERY</span><span>DESKTOP + MOBILE EXPERIENCE</span></div>
+  <div class="preview-art"><div class="preview-back">ROYALRELICS<small>THE DIGITAL EYEWEAR MUSEUM</small></div>
+   <div class="preview-product p1"><img src="./assets/black-wayfarer.png" alt=""></div>
+   <div class="preview-product p2"><img src="./assets/crystal-clear-optical.png" alt=""></div>
+   <div class="preview-product p3"><img src="./assets/gold-aviator-sunglasses.png" alt=""></div>
+   <div class="preview-floor"></div>
+  </div>
+  <div class="museum-launch">
+   <div><b>CHOOSE YOUR EXPERIENCE</b><small>All products · one museum · one continuous tour</small></div>
+   <button class="button dark" id="launchMuseum">ENTER 3D MUSEUM ↗</button>
+  </div>
+ </div>
+</section>
+
+<section class="collection-section" id="collection">
+ <div class="collection-heading"><div><p class="eyebrow">THE COMPLETE COLLECTION / 14 DESIGNS</p><h2>Find your <em>signature.</em></h2></div>
+ <p>Optical frames and sunglasses, brought together in one collection. Select any design to view its details or send an enquiry.</p></div>
+ <div class="filters"><button class="filter active" data-filter="ALL">ALL PRODUCTS <span id="allCount">14</span></button><button class="filter" data-filter="OPTICAL">OPTICAL</button><button class="filter" data-filter="SUNGLASSES">SUNGLASSES</button>
+  <input id="productSearch" type="search" placeholder="Search designs…" aria-label="Search products"></div>
+ <div class="product-grid" id="productGrid"></div>
+</section>
+
+<section class="story-section" id="story">
+ <div class="story-mark">RR<sup>®</sup></div><div class="story-copy"><p class="eyebrow">THE ROYALRELICS STORY</p><h2>Style is personal.<br><em>Details make it yours.</em></h2>
+ <p>ROYALRELICS began with a simple idea: eyewear should feel considered, expressive and easy to explore. We bring distinctive optical frames and sunglasses together in a curated experience where every design can be discovered at its own pace.</p>
+ <p>Our digital museum is built to make browsing more engaging. Explore the collection, review product details and contact us directly for availability, fit guidance and ordering support.</p>
+ <p class="story-sign">TIMELESS STYLE. ROYAL CHARACTER.</p></div>
+</section>
+
+<section class="order-band">
+ <div><p class="eyebrow">READY TO FIND YOUR FRAME?</p><h2>Let's talk <em>eyewear.</em></h2><p>Send your selected design to us on WhatsApp. We will confirm availability, delivery and payment instructions personally.</p></div>
+ <a class="button light" id="generalWhatsApp" href="#">CHAT ON WHATSAPP ↗</a>
+</section>
+</main>
+
+<footer id="policies">
+ <div class="footer-top"><div><a class="brand footer-brand" href="#home"><b>ROYALRELICS<sup>®</sup></b><small>TIMELESS STYLE. ROYAL CHARACTER.</small></a><p>THE DIGITAL EYEWEAR MUSEUM</p></div>
+ <div class="footer-links"><a href="#story">Our Story</a><a href="#terms">Terms & Conditions</a><a href="#privacy">Privacy Policy</a><a href="#cancellation">Order Cancellation</a><a href="#shipping">Shipping & Delivery</a></div>
+ <div class="footer-contact"><b>ORDER & ENQUIRIES</b><p>WhatsApp ordering · Manual payment confirmation</p><a id="footerWhatsApp" href="#">Contact ROYALRELICS ↗</a></div></div>
+ <div class="footer-bottom"><span>© 2026 ROYALRELICS®. ALL RIGHTS RESERVED.</span><span>PRICES & AVAILABILITY ARE CONFIRMED BEFORE ORDER ACCEPTANCE.</span></div>
+</footer>
+
+<!-- Login / Sign-up dialog (Supabase Auth) -->
+<div class="overlay" id="authDialog" aria-hidden="true"><div class="dialog auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+ <button class="close" data-close="authDialog" aria-label="Close">×</button>
+ <p class="eyebrow">ROYALRELICS® CUSTOMER ACCOUNT</p><h2 id="authTitle">Welcome back.</h2>
+ <p class="auth-intro" id="authIntro">Sign in to your ROYALRELICS account or create a new one.</p>
+ <div class="auth-switch"><button class="active" id="showLogin">LOGIN</button><button id="showSignup">SIGN UP</button></div>
+ <form id="authForm">
+  <label id="nameField" hidden>Full name<input id="authName" type="text" autocomplete="name" placeholder="Your name"></label>
+  <label>Email address<input id="authEmail" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+  <label>Password<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters"></label>
+  <button class="button dark full" id="authSubmit" type="submit">LOGIN</button>
+ </form>
+ <p class="auth-message" id="authMessage" role="status" aria-live="polite"></p>
+ <p class="fineprint">By creating an account, you agree to the Terms & Conditions and Privacy Policy. Account authentication is handled securely by Supabase.</p>
+ </div></div>
+
+<!-- Product detail dialog -->
+<div class="overlay" id="productDialog" aria-hidden="true"><div class="dialog product-dialog" role="dialog" aria-modal="true" aria-labelledby="dialogName">
+ <button class="close" data-close="productDialog" aria-label="Close">×</button><div class="dialog-image"><img id="dialogImage" alt=""></div>
+ <div class="dialog-info"><p class="eyebrow" id="dialogCategory">PRODUCT DETAIL</p><h2 id="dialogName"></h2><p class="sku" id="dialogCode"></p><div class="dialog-price" id="dialogPrice"></div><p id="dialogDescription"></p>
+ <div class="spec-list"><div><span>FRAME COLOUR</span><b id="dialogColour"></b></div><div><span>DESIGN</span><b id="dialogDesign"></b></div><div><span>FINISH</span><b id="dialogFinish"></b></div><div><span>LENS</span><b id="dialogLens"></b></div></div>
+ <p class="fineprint">Product appearance may vary slightly by screen. Confirm stock, measurements and lens specifications with us before ordering.</p>
+ <button class="button dark full" id="orderProduct">ENQUIRE ON WHATSAPP ↗</button></div>
+</div></div>
+
+<!-- Policy dialogs -->
+<div class="overlay" id="policyDialog" aria-hidden="true"><div class="dialog policy-dialog" role="dialog" aria-modal="true"><button class="close" data-close="policyDialog">×</button><p class="eyebrow">ROYALRELICS® INFORMATION</p><h2 id="policyTitle"></h2><div id="policyBody" class="policy-body"></div></div></div>
+
+<!-- 3D museum viewer -->
+<section class="viewer" id="viewer" aria-hidden="true">
+ <div class="viewer-bar"><div class="viewer-logo">ROYALRELICS<small>THE DIGITAL EYEWEAR MUSEUM</small></div><div id="viewerStatus">FREE EXPLORE</div><button id="exitViewer" class="exit-viewer">EXIT ×</button></div>
+ <div id="threeHost"></div>
+ <div class="tour-panel">
+  <div class="tour-tabs"><button id="freeMode" class="active">FREE EXPLORE</button><button id="guidedMode">GUIDED TOUR</button></div>
+  <div class="tour-actions" id="tourActions"><button id="tourPrev" aria-label="Previous exhibit">←</button><button id="tourPlay">START TOUR ▶</button><button id="tourNext" aria-label="Next exhibit">→</button>
+   <label>Speed <select id="tourSpeed"><option value="0.7">Slow</option><option value="1" selected>Normal</option><option value="1.5">Fast</option></select></label>
+  </div>
+  <div class="tour-progress"><span id="tourProgress">Choose Guided Tour to begin · 14 exhibits</span><div><i id="tourProgressBar"></i></div></div>
+ </div>
+ <div class="desktop-help" id="desktopHelp">CLICK SCENE · WASD / ARROWS TO MOVE · MOUSE TO LOOK · CLICK A FRAME</div>
+ <div class="mobile-controls" id="mobileControls">
+  <div class="move-pad"><button data-move="forward">▲</button><div><button data-move="left">◀</button><button data-move="back">▼</button><button data-move="right">▶</button></div></div>
+  <div class="mobile-tip">Drag on the gallery to look around · Tap a frame for details</div>
+ </div>
+</section>
+
+<script type="module" src="./app.js"></script>
+</body></html>
