@@ -41,7 +41,14 @@ function sendWhatsApp(message){
 function productMessage(p){
   return `Hello ${STORE_CONFIG.storeName}, I am interested in this product:\n\n${p.name}\nProduct Code: ${p.id}\nCategory: ${p.category}\nDisplayed Price: ${p.price}\n\nPlease confirm availability, final price, delivery to ${STORE_CONFIG.deliveryArea}, and payment instructions.`;
 }
-
+// Prevent long-press copy menu on mobile controls
+document.querySelectorAll(
+  "#mobileControls button, #tourActions button, [data-move]"
+).forEach(button => {
+  button.addEventListener("contextmenu", e => {
+    e.preventDefault();
+  });
+});
 function renderProducts(){
   const term = $("productSearch").value.trim().toLowerCase();
   const list = PRODUCTS.filter(p => (currentFilter==="ALL" || p.category===currentFilter) &&
