@@ -306,15 +306,83 @@ function animate(){
  }
  renderer.render(scene,camera);
 }
-function onCanvasDown(e){
- if(mode==="guided")return;
- pointerDown=true;lastPointer={x:e.clientX,y:e.clientY};pointerStart={x:e.clientX,y:e.clientY};
- if(!isMobile && renderer.domElement.requestPointerLock && e.button===0){renderer.domElement.requestPointerLock().catch?.(()=>{});}
+function onCanvasDown(e) {
+  // Guided mode मध्येही product select करता येईल.
+  pointerDown = true;
+
+  lastPointer = {
+    x: e.clientX,
+    y: e.clientY
+  };
+
+  pointerStart = {
+    x: e.clientX,
+    y: e.clientY
+  };
+
+  // Pointer lock फक्त Free Explore मध्ये.
+  if (
+    mode === "free" &&
+    !isMobile &&
+    renderer.domElement.requestPointerLock &&
+    e.button === 0
+  ) {
+    renderer.domElement.requestPointerLock().catch(() => {});
+  }
 }
-function onCanvasMove(e){
- if(!pointerDown && document.pointerLockElement!==renderer?.domElement)return;
- const dx=e.movementX || (e.clientX-lastPointer.x),dy=e.movementY || (e.clientY-lastPointer.y);
- if(isMobile || document.pointerLockElement!==renderer?.domElement){yaw-=dx*.004;pitch-=dy*.003;lastPointer={x:e.clientX,y:e.clientY};}
+
+function onCanvasMove(e) {
+  // Guided Tour मध्ये camera हलू देऊ नको.
+  if (mode === "guided") return;
+
+  if (!pointerDown &&
+      document.pointerLockElement !== renderer?.domElement) return;
+
+  const dx = e.movementX || (e.clientX - lastPointer.x);
+  const dy = e.movementY || (e.clientY - lastPointer.y);
+
+  if (isMobile || document.pointerLockElement !== renderer?.domElement) {
+    yaw -= dx * 0.004;
+    pitch -= dy * 0.003;
+
+    lastPointer = {
+      x: e.clientX,
+      y: e.clientY
+    };
+  }
+}
+
+function onCanvasUp(e) {
+  if (!pointerDown) return;
+
+  pointerDown = false;
+
+  // Drag केल्यास product select होणार नाही.
+  const dx = Math.abs(e.clientX - pointerStart.x);
+  const dy = Math.abs(e.clientY - pointerStart.y);
+
+  if (dx < 8 && dy < 8) {
+    const r = renderer.domElement.getBoundingClientRect();
+
+    pointer.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+    pointer.y = -((e.clientY - r.top) / r.height) * 2 + 1;
+
+    raycaster.setFromCamera(pointer, camera);
+
+    const hits = raycaster.intersectObjects(exhibits, true);
+
+    if (hits.length) {
+      let o = hits[0].object;
+
+      while (o && !o.userData.product) {
+        o = o.parent;
+      }
+
+      if (o?.userData.product) {
+        showProduct(o.userData.product);
+      }
+    }
+  }
 }
 function onCanvasUp(e){
  if(!pointerDown)return;pointerDown=false;
