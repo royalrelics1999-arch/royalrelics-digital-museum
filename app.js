@@ -257,13 +257,38 @@ function setMode(m){
  if(m==="guided"){stopTour();tourIndex=0;goToTourIndex(0,false);$("tourProgress").textContent=`Exhibit 1 of ${exhibits.length} · ${exhibits[0].userData.product.name}`;}
  else {stopTour();camera.position.set(0,1.65,9.6);yaw=0;pitch=0;camera.rotation.set(0,0,0);}
 }
-function goToTourIndex(i,play=true){
- tourIndex=(i+exhibits.length)%exhibits.length;const t=exhibitCamera(tourIndex);
- guidedFrom={pos:camera.position.clone(),quat:camera.quaternion.clone()};
- const temp=new THREE.Object3D();temp.position.copy(t.pos);temp.lookAt(t.look);guidedTo={pos:t.pos,quat:temp.quaternion.clone()};
- tourElapsed=0; $("tourProgress").textContent=`Exhibit ${tourIndex+1} of ${exhibits.length} · ${exhibits[tourIndex].userData.product.name}`;
- $("tourProgressBar").style.width=`${((tourIndex+1)/exhibits.length)*100}%`;
- if(play){tourPlaying=true;$("tourPlay").textContent="PAUSE TOUR ❚❚";}
+function goToTourIndex(i, play = true) {
+  tourIndex = (i + exhibits.length) % exhibits.length;
+
+  const t = exhibitCamera(tourIndex);
+
+  guidedFrom = {
+    pos: camera.position.clone(),
+    quat: camera.quaternion.clone()
+  };
+
+  // Use PerspectiveCamera so the viewing direction is correct
+  const temp = new THREE.PerspectiveCamera();
+  temp.position.copy(t.pos);
+  temp.lookAt(t.look);
+
+  guidedTo = {
+    pos: t.pos,
+    quat: temp.quaternion.clone()
+  };
+
+  tourElapsed = 0;
+
+  $("tourProgress").textContent =
+    `Exhibit ${tourIndex + 1} of ${exhibits.length} · ${exhibits[tourIndex].userData.product.name}`;
+
+  $("tourProgressBar").style.width =
+    `${((tourIndex + 1) / exhibits.length) * 100}%`;
+
+  if (play) {
+    tourPlaying = true;
+    $("tourPlay").textContent = "PAUSE TOUR ❚❚";
+  }
 }
 function stopTour(){tourPlaying=false;guidedFrom=null;guidedTo=null;$("tourPlay").textContent="START TOUR ▶";}
 function advanceTour(delta){goToTourIndex(tourIndex+delta,true);}
